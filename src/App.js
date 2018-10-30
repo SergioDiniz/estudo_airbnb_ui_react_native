@@ -1,7 +1,9 @@
 import React from "react";
 import { Text, View } from "react-native";
-import Routes from "./routes";
+import TabRoutes from "./TabRoutes";
 
-const App = () => <Routes />;
+function App() {
+  return <TabRoutes />;
+}
 
 export default App;

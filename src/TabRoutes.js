@@ -61,6 +61,7 @@ export default createBottomTabNavigator(
     }
   },
   {
+    order: ["Explore", "Saved", "Trips", "Inbox", "Profile"],
     tabBarOptions: {
       activeTintColor: "red",
       inactiveTintColor: "grey",
