@@ -5,11 +5,15 @@ import {
   SafeAreaView,
   TextInput,
   Platform,
-  StatusBar
+  StatusBar,
+  ScrollView,
+  Image
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+
+import Category from "../components/Category";
+
 export class Explore extends Component {
-  
   componentWillMount() {
     this.startHeaderHeight = 80;
     if (Platform.OS === "android") {
@@ -21,12 +25,14 @@ export class Explore extends Component {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{ flex: 1 }}>
+          {/* Barra de Pesquisa */}
           <View
             style={{
               height: this.startHeaderHeight,
               backgroundColor: "white",
-              borderBottomWidth: 1,
-              borderBottomColor: "dddddd"
+              shadowColor: "black",
+              shadowOpacity: 0.2,
+              elevation: 1
             }}
           >
             <View
@@ -59,6 +65,41 @@ export class Explore extends Component {
               />
             </View>
           </View>
+          {/* Fim Barra de Pesquisa */}
+
+          {/* Scroll horizontal */}
+          <ScrollView scrollEventThrottle={16}>
+            <View style={{ flex: 1, backgroundColor: "white", paddingTop: 20 }}>
+              <Text
+                style={{
+                  fontSize: 24,
+                  fontWeight: "700",
+                  paddingHorizontal: 20,
+                  color: "black"
+                }}
+              >
+                What can we help you find, Sergio?
+              </Text>
+
+              <View style={{ height: 130, marginTop: 20 }}>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                  <Category
+                    name="Home"
+                    imageUri={require("../assets/home.jpg")}
+                  />
+                  <Category
+                    name="Experiences"
+                    imageUri={require("../assets/experiences.jpg")}
+                  />
+                  <Category
+                    name="Restaurant"
+                    imageUri={require("../assets/restaurant.jpg")}
+                  />
+                </ScrollView>
+              </View>
+            </View>
+          </ScrollView>
+          {/* Fim Scroll horizontal */}
         </View>
       </SafeAreaView>
     );
