@@ -1,6 +1,5 @@
 import React from "react";
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-import { createMaterialTopTabNavigator } from 'react-navigation'
+import { createBottomTabNavigator } from "react-navigation";
 import { Image } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -10,7 +9,7 @@ import Saved from "./pages/Saved";
 import Trips from "./pages/Trips";
 import Profile from "./pages/Profile";
 
-export default createMaterialTopTabNavigator(
+export default createBottomTabNavigator(
   {
     Explore: {
       screen: Explore,
@@ -62,10 +61,7 @@ export default createMaterialTopTabNavigator(
     }
   },
   {
-    tabBarPosition: 'bottom',
-    animationEnabled: false,
     tabBarOptions: {
-      showIcon: true,
       activeTintColor: "red",
       inactiveTintColor: "grey",
       style: {
